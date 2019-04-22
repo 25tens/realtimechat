@@ -1,0 +1,46 @@
+{% extends 'chat/base.html' %}
+{% load static from staticfiles %}
+
+<!-- @import url('https://fonts.googleapis.com/css?family=Lobster'); -->
+{% block content %}
+
+<div class="container-fluid p-0">
+   <section class="resume-section p-3 p-lg-5 d-flex flex-column creative-content" id="">
+   <div class="my-auto">
+          <h2 class="mb-5">NEWEST</h2>
+          <p class="text-primary">상상을 현실로 만드는 가장 빠른 길 --- </p>
+    <hr class="m-0">
+    </div>
+   <!--  <section class="creative-content"> -->
+    <div class="container">
+        <div class="row d-flex align-items-center h-100">
+            <div class="col-12 col-lg-6">
+                <div class="img-box text-left">
+                  {% for p in post.images_set.all %}
+         
+            <img src="{{ p.image.url }}" class="">
+         
+                   {% endfor %} 
+                   
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="content-box">
+                    <h2><span class="font-weight-bold d-block"></span>
+                     <span class="font-weight-light"> {{ post.title }} </span>
+                   </h2>
+                    <p class="mt-4">  {{ post.content|linebreaksbr }}
+                                      {% if post.published_date %}
+                                       {% endif %} </p>
+                   
+                   <input type=button value="이전페이지" class="btn btn-primary btn-lg rounded-0 mt-3" onClick="javascript:history.go(-1);">
+                </div>
+            </div>
+        </div>
+    </div>
+     </section>
+   </div>
+
+
+{% endblock %}
+
